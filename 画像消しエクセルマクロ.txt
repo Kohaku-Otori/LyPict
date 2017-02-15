@@ -1,0 +1,31 @@
+Sub PictDelete()
+    Call Sheet1Delete
+    Call Sheet2Delete
+End Sub
+
+Sub Sheet1Delete()
+    Dim Obj As Object
+    
+    Worksheets("Sheet1").Activate
+    
+    For Each Obj In ActiveSheet.DrawingObjects
+        If Not Intersect(Obj.TopLeftCell, Range("H7:M20")) Is Nothing Then
+            Obj.Delete
+        End If
+    Next
+    
+    Range("A1").Select
+End Sub
+Sub Sheet2Delete()
+    Dim Obj As Object
+    
+    Worksheets("Sheet2").Activate
+    
+    For Each Obj In ActiveSheet.DrawingObjects
+        If Not Intersect(Obj.TopLeftCell, Range("H7:M20")) Is Nothing Then
+            Obj.Delete
+        End If
+    Next
+    
+    Range("A1").Select
+End Sub
